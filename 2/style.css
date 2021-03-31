@@ -45,6 +45,7 @@ header nav {
 main { 
 	background: white; 
 	overflow: auto;
+	overflow-y: hidden;
 	padding: 20px;
 }
 main .main_block {
@@ -58,7 +59,7 @@ main .image {
 
 main .faq {
 	float: left;
-	width: 855px;
+	width: 570px;
 }
 
 main .faq p {
