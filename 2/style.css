@@ -1,5 +1,7 @@
 body {
-	background: #f9e933;
+	background: #f9e933; 
+	font-family: 'Droid sans';
+	font-size: 100%;
 }
 
 a {
@@ -10,6 +12,11 @@ a {
 a:hover {
 	text-decoration: underline;
 	color: red;
+}
+
+h1, h2, h3, h4 {
+	font-family: Ubuntu;
+	font-size: 120%;
 }
 
 header, main, footer { 
@@ -50,9 +57,8 @@ main .faq {
 	width: 855px;
 }
 
-main .faq p {
-	margin-top: 5px;
-	margin-bottom: 5px;
+main h2 {
+	font-size: 120%;
 }
 
 footer {
@@ -61,8 +67,10 @@ footer {
 
 footer .contact {
 	float: left;
+	width: 570px;
 }
  
 footer .sitemap {
-	float: right;
+	float: right;	
+	width: 285px;
 }
