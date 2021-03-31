@@ -1,16 +1,68 @@
 body {
-background: #f9e933;
+	background: #f9e933;
 }
-header, main, footer {
-min-width: 855px;
+
+a {
+	text-decoration: none;
+	color: red;
 }
-header .container, main .container, footer .container {
-max-width: 855px;
-margin: auto;
+
+a:hover {
+	text-decoration: underline;
+	color: red;
 }
-header {
-background: white;
+
+header, main, footer { 
+	min-width: 855px;
 }
-main {
-background: white;
+
+header .container, main .container, footer .container { 
+	max-width: 855px;
+}
+
+header { 
+	background: white; 
+	overflow: auto;
+}
+header h1 {
+	float: left;
+	width: 570px;
+}
+header nav {
+	float: right;
+	width: 285px;
+}
+main { 
+	background: white; 
+	overflow: auto;
+}
+main .main_block {
+	float: left;
+	width: 570px;
+}
+main .image {
+	float: right;	
+	width: 285px;
+}
+
+main .faq {
+	float: left;
+	width: 855px;
+}
+
+main .faq p {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+footer {
+	overflow: auto;
+}
+
+footer .contact {
+	float: left;
+}
+ 
+footer .sitemap {
+	float: right;
 }
