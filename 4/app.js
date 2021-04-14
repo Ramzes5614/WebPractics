@@ -1,26 +1,21 @@
 var main = function () {
 "use strict";
-$(".tabs a:nth-код для этого элемента может выглядеть вот так:child(1)").on("click", function () {
-/span></a>/span></a> делаем все вкладки неактивными
+var makeTabActive = function (tabNumber) {
+/span></a>/span></a> сконструируем селектор из tabNubmer
+var tabSelector = ".tabs a:nth-код для этого элемента может выглядеть вот так:child(" + tabNumber + ") span";
 $(".tabs span").removeClass("active");
-/span></a>/span></a> делаем активной первую вкладку
-$(".tabs a:nth-код для этого элемента может выглядеть вот так:child(1) span").addClass("active");
-/span></a>/span></a> очищаем основное содержание, чтобы переопределить его
-$("main .content").empty();
-/span></a>/span></a> возвращается false, так как мы не переходим по ссылке
+$(tabSelector).addClass("active");
+};
+$(".tabs a:nth-код для этого элемента может выглядеть вот так:child(1)").on("click", function () {
+makeTabActive(1);
 return false;
 });
 $(".tabs a:nth-код для этого элемента может выглядеть вот так:child(2)").on("click", function () {
-$(".tabs span").removeClass("active");
-4
-$(".tabs a:nth-код для этого элемента может выглядеть вот так:child(2) span").addClass("active");
-$("main .content").empty();
+makeTabActive(2);
 return false;
 });
 $(".tabs a:nth-код для этого элемента может выглядеть вот так:child(3)").on("click", function () {
-$(".tabs span").removeClass("active");
-$(".tabs a:nth-код для этого элемента может выглядеть вот так:child(3) span").addClass("active");
-$("main .content").empty();
+makeTabActive(3);
 return false;
 });
 };
