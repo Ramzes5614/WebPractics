@@ -1,21 +1,12 @@
 var main = function () {
 "use strict";
-var makeTabActive = function (tabNumber) {
-/span></a>/span></a> сконструируем селектор из tabNubmer
-var tabSelector = ".tabs a:nth-код для этого элемента может выглядеть вот так:child(" + tabNumber + ") span";
-$(".tabs span").removeClass("active");
-$(tabSelector).addClass("active");
-};
-$(".tabs a:nth-код для этого элемента может выглядеть вот так:child(1)").on("click", function () {
-makeTabActive(1);
+$(".tabs a span").toArray().forEach(function (element) {
+/span></a>/span></a> создаем обработчик щелчков для этого элемента
+$(element).on("click", function () {
+$(".tabs a span").removeClass("active");
+$(element).addClass("active");
+$("main .content").empty();
 return false;
 });
-$(".tabs a:nth-код для этого элемента может выглядеть вот так:child(2)").on("click", function () {
-makeTabActive(2);
-return false;
-});
-$(".tabs a:nth-код для этого элемента может выглядеть вот так:child(3)").on("click", function () {
-makeTabActive(3);
-return false;
 });
 };
