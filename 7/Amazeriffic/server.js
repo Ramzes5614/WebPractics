@@ -42,15 +42,6 @@ app.get("/todos.json", function (req, res) {
 		res.json(toDos);
 	});
 });
-/*app.post("/todos", function (req, res) {
-	// сейчас объект сохраняется в req.body
-	var newToDo = req.body;
-	console.log(newToDo);
-	toDos.push(newToDo);
-	// отправляем простой объект
-	res.json({"message":"Вы размещаетесь на сервере!"});
-});*/
-
 app.post("/todos", function (req, res) {
 	console.log(req.body);
 	var newToDo = new ToDo({
