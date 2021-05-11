@@ -5,8 +5,8 @@ mongoose.connect('mongodb://localhost/amazeriffic',  { useNewUrlParser: true });
 const port = 3000;
 var bodyParser = require('body-parser');
 
-const usersController = require("./controllers/userController.js");
-const toDosController = require("./controllers/todoController.js");
+const usersController = require("./userController.js");
+const toDosController = require("./todoController.js");
 
 app.use( bodyParser.json() );      
 app.use(bodyParser.urlencoded({    
