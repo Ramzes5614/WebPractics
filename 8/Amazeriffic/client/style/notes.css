@@ -1,0 +1,59 @@
+.tabs a span {
+    display: inline-block;
+    border-radius: 5px 5px 0 0;
+    width: 100px;
+    margin-right: 10px;
+    text-align: center;
+    background: #f9e83371;
+    padding: 5px;
+}
+
+.tabs a span.active {
+    background: #f9e833c9;
+}
+
+main .content{
+    font-size: 110%;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 200px;
+    background: #f9e833c9;
+    border-radius: 0 5px 5px 5px;
+}
+
+main .content li{
+    margin-bottom: 2px;
+    background-color: lavenderblush;
+    padding: 5px;
+    list-style: none;
+    padding-left: 20px;
+}
+
+textarea{
+    font-size: 110%;
+    border-radius: 5px;
+    max-width: 400px;
+    min-width: 300px;
+    max-height: 100px;
+    min-height: 50px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.addBtn{
+    display: block;
+    font-size: 120%;
+}
+
+.tagLable{
+    padding: 5px;
+    margin-bottom: 2px;
+    background-color: rgba(126, 252, 0, 0.466);
+    font-size: 130%;
+    border-radius: 5px;
+}
+
+
+    

@@ -1,5 +1,5 @@
-var User = require("../models/user.js"),
-    ToDo = require("../models/todo.js");
+var User = require("./user.js"),
+    ToDo = require("./todo.js");
 var username=null
 var UsersController = {};
 
