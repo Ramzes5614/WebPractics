@@ -1,3 +1,25 @@
+var organizeByTags = function (toDoObjects) {
+var tags = [];
+toDoObjects.forEach(function (toDo) {
+toDo.tags.forEach(function (tag) {
+if (tags.indexOf(tag) === -1) {
+tags.push(tag);
+}
+});
+});
+
+var tagObjects = tags.map(function (tag) {
+var toDosWithTag = toDoObjects.filter(function (toDo) {
+if (toDo.tags.indexOf(tag) !== -1) {
+return toDo.description;
+}
+}).map(function (toDo) { return toDo.description });
+return { "name": tag, "toDos": toDosWithTag };
+});
+console.log(tagObjects)
+return tagObjects;
+};
+
 var main = function (toDoObjects) {
 	"use strict";
 	var toDos = toDoObjects.map(function (toDo) {
@@ -33,16 +55,7 @@ var main = function (toDoObjects) {
 			else if ($element.parent().is(":nth-child(3)")) {
 				// ЭТО КОД ДЛЯ ВКЛАДКИ ТЕГИ
 				console.log("Щелчок на вкладке Теги");
-				var organizedByTag = [
-				{
-					"name": "покупки",
-					"toDos": ["Купить продукты "]
-				},
-				{
-					"name": "рутина",
-					"toDos": ["Купить продукты", "Вывести Грейси на прогулку в парк "]
-				}
-				]
+				var organizedByTag = organizeByTags(toDoObjects);
 				organizedByTag.forEach(function (tag) {
 					var $tagName = $("<h3>").text(tag.name),
 					$content = $("<ul>");
@@ -55,20 +68,32 @@ var main = function (toDoObjects) {
 				});	
 			}
 			else if ($element.parent().is(":nth-child(4)")) { 
-				$(".content").append(
-					'<input type="text" class="inp">'+
-					'<button class="btn">Добавить</button>'
-					);
-				var newToDo;
-				$('.btn').on('click',function(){
-					newToDo= $('.inp').val();
-					if (newToDo!='') {
-						toDos.push( newToDo);
-						alert('Новое задание "'+newToDo+'" успешно добавлено!');
-						$('.inp').val("");
-					}
-				})
-				
+				var $input = $("<input>").addClass("description"),
+					$inputLabel = $("<p>").text("Новая задача: "),
+					$tagInput = $("<input>").addClass("tags"),
+					$tagLabel = $("<p>").text("Тэги: "),
+					$button = $("<button>").text("+");
+
+				$button.on("click", function () {
+					var description = $input.val(),
+						tags = $tagInput.val().split(","),
+						// создаем новый элемент списка задач
+						newToDo = {"description":description, "tags":tags};
+					$.post("todos", newToDo, function (result) {
+						console.log(result);
+						// нужно отправить новый объект на клиент
+						// после получения ответа сервера
+						toDoObjects.push(newToDo);
+						// обновляем toDos
+						toDos = toDoObjects.map(function (toDo) {
+							return toDo.description;
+						});
+						$input.val("");
+						$tagInput.val("");	
+					});
+				});
+
+				$("main .content").append($inputLabel).append($input).append($tagLabel).append($tagInput).append($button);
 			}
 			return false;
 		})
